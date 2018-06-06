@@ -1,0 +1,17 @@
+;
+; BIND data file for corp.mv.pi public zone
+;
+$TTL	604800
+mv.pi.	IN	SOA	ns1.mv.pi. hostmaster.mv.pi. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL 
+; 
+mv.pi.	IN	NS	ns1.mv.pi.
+ns1	IN	A	172.23.37.130
+
+
+mv.pi.	IN	MX	10 mail.mv.pi.
+mail		IN	A	172.23.37.131
