@@ -1,0 +1,38 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+view "internal" {
+   match-clients { 127.0.0.1; 172.23.39.1/24; };
+   recursion yes;
+   allow-query { localhost; 172.23.39.1/24; };
+
+	zone "corp.ln.pi" IN {
+                type master;
+                file "/etc/bind/zones/db.corp.ln.pi";
+	};
+
+	zone "ln.pi" IN {
+                type master;
+                file "/etc/bind/zones/db.ln.pi";
+        };
+       zone "pi" IN {
+         type slave;
+         masters { 10.10.10.10; };
+       }; 
+   include "/etc/bind/named.conf.default-zones";
+};
+
+view "external" {
+   match-destinations { 172.23.39.130; };
+   recursion no;
+   allow-query { any; };
+
+	zone "ln.pi" IN {
+                type master;
+                file "/etc/bind/zones/db.ln.pi";
+	};
+};
