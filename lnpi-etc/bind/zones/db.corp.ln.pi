@@ -1,0 +1,16 @@
+;
+; BIND data file for corp.ln.pi private zone
+;
+$TTL	604800
+corp.ln.pi.	IN	SOA	pablo.corp.ln.pi. hostmaster.corp.ln.pi. (
+		     2018060301		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+corp.ln.pi.		IN	NS	pablo.corp.ln.pi.
+pablo			IN	A	172.23.39.1
+
+corp.ln.pi.		IN	MX	10 mail.corp.ln.pi.
+mail			IN	A	172.23.39.66

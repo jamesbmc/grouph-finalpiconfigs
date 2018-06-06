@@ -1,0 +1,28 @@
+frr version 4.0
+frr defaults traditional
+hostname pablo
+no ipv6 forwarding
+username pi nopassword
+!
+service password-encryption
+service integrated-vtysh-config
+!
+log syslog informational
+!
+interface eth1
+ ipv6 nd ra-interval 5
+ no ipv6 nd suppress-ra
+!
+interface lo
+ ip address 172.23.39.129/32
+!
+router bgp 65007
+ coalesce-time 1000
+ neighbor eth1 interface remote-as external
+ !
+ address-family ipv4 unicast
+  network 172.23.39.0/24
+ exit-address-family
+!
+line vty
+!

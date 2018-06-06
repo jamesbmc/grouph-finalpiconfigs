@@ -1,0 +1,16 @@
+;
+; BIND data file for ln.pi public zone
+;
+$TTL	604800
+ln.pi.	IN	SOA	ns1.ln.pi. hostmaster.ln.pi. (
+		     2018060301		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+ln.pi.			IN	NS	ns1.ln.pi.
+ns1			IN	A	172.23.39.130
+
+ln.pi.			IN	MX	10 mail.ln.pi.
+mail			IN	A	172.23.39.131
