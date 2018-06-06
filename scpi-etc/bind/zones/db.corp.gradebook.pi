@@ -1,0 +1,17 @@
+;
+; BIND data file for corp.sc.pi private zone
+;
+$TTL	604800
+corp.sc.pi.	IN	SOA	sc.corp.sc.pi. hostmaster.corp.sc.pi. (
+		     2018052801		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+corp.sc.pi.			IN	NS	sc.corp.sc.pi.
+scpi.corp.jm.pi.		IN	A	172.23.38.1
+
+corp.sc.pi.			IN      MX      10 mail.corp.sc.pi.
+mail				IN	A	172.23.38.66
+

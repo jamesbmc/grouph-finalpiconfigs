@@ -1,0 +1,16 @@
+;
+; BIND data file for sc.pi public zone
+;
+$TTL	604800
+sc.pi.	IN	SOA	ns1.sc.pi. hostmaster.sc.pi. (
+		     2018052801		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+sc.pi.		IN	NS	ns1.sc.pi.
+ns1		IN	A	172.23.38.130
+
+sc.pi.		IN      MX      10 mail.sc.pi.
+mail		IN	A	172.23.38.131
